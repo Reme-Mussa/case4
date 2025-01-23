@@ -17,7 +17,7 @@ body {
 
 .huvud {
     background-color: #125da8;
-    color: white;
+    color: rgb(141, 10, 10);
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
