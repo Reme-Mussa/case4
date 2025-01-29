@@ -17,7 +17,7 @@ body {
 
 .huvud {
     background-color: #125da8;
-    color: rgb(141, 10, 10);
+    color: #FD113F;
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -36,7 +36,7 @@ body {
 .logotyp {
     font-size: 24px;
     text-decoration: none;
-    color: white;
+    color: #90E0FF;
     font-weight: bold;
 }
 
@@ -48,28 +48,28 @@ body {
 }
 
 #sokInput {
-    padding: 5px;
+    padding: 10px;
     font-size: 16px;
-    border: none;
-    border-radius: 25px 0 0 25px;
-    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 300px;
     background: #fff;
 }
 
 #sokKnapp {
-    padding: 5px 10px;
+    padding: 10px 20px;
     font-size: 16px;
-    margin-left: 5px;
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 0 25px 25px 0;
     cursor: pointer;
-    transition: background 0.3s;
+    background-color: #FFC858;
+    border: none;
+    border-radius: 4px;
+    color: #1b1b1c;
+    transition: background-color 0.3s;
 }
 
 #sokKnapp:hover {
-    background: #1d4ed8;
+    background-color: #753BFF;
 }
 
 #huvudinnehall {

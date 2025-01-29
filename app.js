@@ -1,5 +1,4 @@
-const UNSPLASH_API_URL = "https://api.unsplash.com/search/photos";
-const UNSPLASH_ACCESS_KEY = "VSOepO8o1ucZR-5aR5rHB7YvLbQpYxuUA92qJ0ulsLo";
+const NASA_API_URL = "https://images-api.nasa.gov/search";
 
 let aktuellaResultat = [];
 
@@ -15,17 +14,11 @@ function hanteraSök() {
 
 async function hämtaBilder(sökterm) {
     try {
-        const url = new URL(UNSPLASH_API_URL);
-        url.searchParams.append('query', sökterm);
-        url.searchParams.append('client_id', UNSPLASH_ACCESS_KEY);
-        url.searchParams.append('per_page', 20);
-        url.searchParams.append('orientation', 'landscape');
+        const url = new URL(NASA_API_URL);
+        url.searchParams.append('q', sökterm);
+        url.searchParams.append('media_type', 'image');
         
-        const response = await fetch(url, {
-            headers: {
-                'Accept-Version': 'v1'
-            }
-        });
+        const response = await fetch(url);
         
         if (!response.ok) {
             const errorData = await response.json();
@@ -33,7 +26,7 @@ async function hämtaBilder(sökterm) {
         }
         
         const data = await response.json();
-        visaBilder(data.results);
+        visaBilder(data.collection.items);
     } catch (error) {
         console.error('Error fetching images:', error);
     }
@@ -46,8 +39,8 @@ function visaBilder(bilder) {
         const bildElement = document.createElement('div');
         bildElement.classList.add('bild');
         bildElement.innerHTML = `
-            <img src="${bild.urls.small}" alt="${bild.alt_description}">
-            <p>${bild.description || 'Ingen beskrivning'}</p>
+            <img src="${bild.links[0].href}" alt="${bild.data[0].title}">
+            <p>${bild.data[0].title || 'Ingen beskrivning'}</p>
         `;
         huvudinnehall.appendChild(bildElement);
     });
@@ -78,7 +71,7 @@ async function renderaSökresultat(sökterm) {
                 </div>
             `;
             
-            // إضافة حدث النقر للبطاقات
+            
             document.querySelectorAll('.bildkort').forEach(kort => {
                 kort.addEventListener('click', () => {
                     window.location.hash = `#/detaljer?id=${kort.dataset.id}`;
@@ -148,7 +141,7 @@ function konfigureraHändelser() {
     });
 }
 
-// تهيئة التطبيق
+
 function initiera() {
     konfigureraHändelser();
     router();
