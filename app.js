@@ -46,6 +46,11 @@ function visaBilder(bilder) {
     });
 }
 
+// Fetch and display initial images on page load
+document.addEventListener('DOMContentLoaded', () => {
+    hämtaBilder('mars'); // Default search term
+});
+
 async function renderaSökresultat(sökterm) {
     const huvudInnehåll = document.getElementById('huvudinnehall');
     huvudInnehåll.innerHTML = `<div class="laddningsspinner"></div>`;

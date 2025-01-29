@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BildSök</title>
+    <title>BildSök - NASA Edition</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;500&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="huvud">
+    <header class="nasa-header">
         <nav class="navigering">
-            <a href="#/" class="logotyp">📷 BildSök</a>
+            <a href="#/" class="nasa-logo">🚀 BildSök</a>
             <div class="sok-container">
                 <input type="text" 
                        id="sokInput" 
-                       placeholder="Sök efter bilder (t.ex. 'cats')">
-                <button id="sokKnapp">Sök</button>
+                       placeholder="Sök efter rymdbilder (t.ex. 'mars')"
+                       class="nasa-input">
+                <button id="sokKnapp" class="nasa-button">Starta Sökning</button>
             </div>
         </nav>
     </header>
 
-    <main id="huvudinnehall"></main>
+    <main id="huvudinnehall" class="nasa-main">
+        <!-- Results will be added here by JavaScript -->
+    </main>
 
-    <footer class="sidfot">
-        <p>© 2024 BildSök - Powered by NASA API</p>
+    <footer class="nasa-footer">
+        <p>© 2024 BildSök - Drivs av NASA API</p>
     </footer>
 
     <script src="app.js"></script>
