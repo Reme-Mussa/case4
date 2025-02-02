@@ -1,90 +1,118 @@
-/* NASA Design Theme */
-:root {
-    --nasa-black: #0A0A0A;
-    --nasa-blue: #001F3F;
-    --nasa-red: #E63946;
-    --space-blue: #00B4D8;
+/* Grundstilar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: var(--nasa-black);
-    color: white;
-    font-family: 'Roboto Mono', monospace;
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.nasa-header {
-    background: linear-gradient(to right, var(--nasa-blue), var(--nasa-black));
+.huvud {
+    background: linear-gradient(to right, #001F3F, #000);
     padding: 1rem 0;
-    border-bottom: 2px solid var(--space-blue);
+    border-bottom: 2px solid #00B4D8;
 }
 
-.nasa-logo {
-    font-family: 'Orbitron', sans-serif;
+.logotyp {
     font-size: 2rem;
-    color: var(--nasa-red);
-    text-shadow: 0 0 10px var(--nasa-red);
+    color: #E63946;
+    text-decoration: none;
+    text-shadow: 0 0 10px #E63946;
 }
 
-.nasa-input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--space-blue);
-    color: white;
+.sok-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+#sokInput {
     padding: 0.8rem;
+    border: 1px solid #00B4D8;
     border-radius: 25px 0 0 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 100%;
 }
 
-.nasa-button {
-    background: var(--nasa-red);
-    border: none;
+#sokKnapp {
     padding: 0.8rem 1.5rem;
+    background: #E63946;
+    border: none;
     border-radius: 0 25px 25px 0;
-    font-family: 'Orbitron', sans-serif;
+    color: white;
+    cursor: pointer;
     transition: all 0.3s;
 }
 
-.nasa-button:hover {
+#sokKnapp:hover {
     background: #ff1a2e;
-    box-shadow: 0 0 15px var(--nasa-red);
+    box-shadow: 0 0 15px #E63946;
 }
 
-/* Space Cards Design */
-.nasa-card {
+.bildgalleri {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bildkort {
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid var(--space-blue);
+    border: 1px solid #00B4D8;
     border-radius: 8px;
-    box-shadow: 0 0 15px var(--space-blue);
+    padding: 1rem;
     transition: transform 0.3s;
 }
 
-.nasa-card:hover {
+.bildkort:hover {
     transform: translateY(-5px);
 }
 
-.nasa-footer {
-    background: var(--nasa-blue);
-    padding: 2rem;
+.bildkort img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.bildinfo {
+    padding: 1rem 0;
     text-align: center;
-    position: relative;
 }
 
-.nasa-footer::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(to right, var(--space-blue), var(--nasa-red));
+.bildtitel {
+    color: #00B4D8;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
 }
 
-.glow {
-    animation: pulse 1.5s infinite;
+.bildbeskrivning {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
-@keyframes pulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
+.sidfot {
+    background: #001F3F;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
 }
 
-/* Rest of your existing styles... */
+@media (max-width: 768px) {
+    .bildgalleri {
+        grid-template-columns: 1fr;
+    }
+}
