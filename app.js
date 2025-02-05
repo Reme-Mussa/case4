@@ -1,4 +1,5 @@
 const UNSPLASH_API_URL = "https://images-api.nasa.gov/search";
+const API_KEY = "zmacDQ2gaEeygkfE1dxaeCadFPgjl00KCZMb7Pas"; //  API key
 let aktuellaResultat = [];
 
 document.getElementById('sokKnapp').addEventListener('click', hanteraSök);
